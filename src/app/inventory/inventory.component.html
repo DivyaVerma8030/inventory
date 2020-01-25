@@ -1,0 +1,48 @@
+<div class="form-group row">
+    <div class="col-xs-2">
+        <input class="form-control" placeholder="Enter 1st item" type="text" [(ngModel)]="item1">
+    </div>
+    <div class="col-xs-2">
+        <input class="form-control" placeholder="Enter price" type="text" [(ngModel)]="price1">
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-xs-2">
+        <input class="form-control" placeholder="Enter 2nd item" rows="6" [(ngModel)]="item2">
+    </div>
+    <div class="col-xs-2">
+        <input class="form-control" placeholder="Enter price" type="text" [(ngModel)]="price2">
+    </div>
+</div>
+    <button  class="btn btn-primary" (click)="generateInvoice()">Generate Invoice</button>
+    <br><br>
+      <p *ngIf="!temp2">Field(s) can't be empty</p>
+      <div *ngIf="temp2">
+      <div *ngIf =" temp">
+        <table class="t1">
+            <tr>
+                <td><table height=100px width=300px>
+                    <tr><td class="td1">
+                        {{ item1 }}
+                    </td></tr>
+                    <tr><td class="td1">
+                        {{ item2 }}
+                    </td></tr>
+                </table>
+                 </td>
+                 <td class="td2">Total Bill:- Rs.{{ totalBill }}</td> 
+            </tr>
+        </table>
+        <br>
+     <button  class="btn btn-primary" (click)="finalGenerate()">checkout</button>
+     <br><br>
+      </div>
+      <div *ngIf = "temp1">
+        <p><b>{{ item1 }} :</b> Rs.{{ price1 }}</p> 
+        <p><b>{{ item2 }} : </b>Rs.{{ price2 }} </p>
+        <p><b> Total : </b>Rs.+{{ totalBill }}</p>
+        <p><b> Amount : </b>Rs.{{ total }}</p>
+        <p><b>Tax : </b>Rs.{{ tax }}</p>
+      </div>
+    </div>
+  
